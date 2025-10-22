@@ -2,7 +2,7 @@ import Note from "../models/Note.js"
 
 export async function getAllNtoes(req, res){
     try{
-        const notes= await Note.find().sort({createdAt:-1})
+        const notes= await Note.find()
         res.status(200).json(notes)
     }
     catch(error){
@@ -10,7 +10,6 @@ export async function getAllNtoes(req, res){
         res.status(500).json({message: "Internal server errror"})
 
     }
-    res.status(201).json({message: "Note fetched successfully"})
 
 }
 export  async function createNote(req, res){
